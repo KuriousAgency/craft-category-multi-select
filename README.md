@@ -18,26 +18,12 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require KuriousAgency/category-multi-select
+        composer require kuriousagency/category-multi-select
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Category Multi Select.
 
 ## Category Multi Select Overview
 
--Insert text here-
-
-## Configuring Category Multi Select
-
--Insert text here-
-
-## Using Category Multi Select
-
--Insert text here-
-
-## Category Multi Select Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
+A Craft field type to display 2 level categories as multi-select fields
 
 Brought to you by [Kurious Agency](https://kurious.agency)
