@@ -1,0 +1,41 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Category Multi Select plugin for Craft CMS
+ *
+ * CategoryMultiSelectField Field Settings
+ *
+ * @author    Kurious Agency
+ * @copyright Copyright (c) 2018 Kurious Agency
+ * @link      https://kurious.agency
+ * @package   CategoryMultiSelect
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{# {% do view.registerAssetBundle("kuriousagency\\categorymultiselect\\assetbundles\\categorymultiselect\\CategoryMultiSelectAsset") %} #}
+
+{% set sourceOptions = field.getSourceOptions() %}
+
+{{ forms.selectField({
+    label: "Source"|t('app'),
+    instructions: "Which source do you want to select categories from?"|t('app', 'categories'),
+    id: 'source',
+    name: 'source',
+    options: sourceOptions,
+    value: field.source
+}) }}
+
+{# {% block branchLimitField %}
+    {{ forms.textField({
+        label: "Branch Limit"|t('app'),
+        instructions: "Limit the number of selectable category branches."|t('app'),
+        id: 'branchLimit',
+        name: 'branchLimit',
+        value: field.branchLimit,
+        size: 2,
+        errors: field.getErrors('branchLimit')
+    }) }}
+{% endblock %} #}

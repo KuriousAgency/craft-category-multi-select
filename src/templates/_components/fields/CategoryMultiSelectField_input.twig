@@ -1,0 +1,60 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Category Multi Select plugin for Craft CMS 3.x
+ *
+ * CategoryMultiSelectField Field Input
+ *
+ * @author    Kurious Agency
+ * @copyright Copyright (c) 2018 Kurious Agency
+ * @link      https://kurious.agency
+ * @package   CategoryMultiSelect
+ * @since     1.0.0
+ */
+#}
+
+{# {% import "_includes/forms" as forms %} #}
+{% import "category-multi-select/_macros/multiselectfield" as macros %}
+
+{% set values = [] %}
+{% set ids = [] %}
+
+{% for element in elements %}
+    {% set values = values|merge([element.id]) %}
+{% endfor %}
+
+{% if maxLevel == 2 %}
+
+    <input type="hidden" name="{{ name }}" value="">
+    <div id="{{ id }}">
+
+        {% for categoryId,category in categories %}
+            
+            {{ macros.multiselectField({
+                label: category.title,
+                id: id ~ '-category-' ~ categoryId,
+                name: name,
+                options: category.children,
+                values: values,
+                class: 'selectize fullwidth',
+            }) }}
+
+            {% set ids = ids|merge(['#fields-' ~ id  ~ '-category-' ~ categoryId]) %}
+
+        {% endfor %}
+
+        {% js %}
+                $(function () {
+                    $('{{ ids|join(',') }}').selectize({
+                        plugins: ['remove_button'],
+                        dropdownParent: 'body'
+                    });
+                });
+            {% endjs %}
+    </div>
+
+{% else %}
+    <div class="error">
+        <p>Error: Craft Category Multiselect only works with categories with 2 levels<p>
+    </div>
+{% endif %}

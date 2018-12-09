@@ -1,0 +1,11 @@
+{% macro multiselect(config) %}
+    {% include "category-multi-select/_macros/multiselect" with config only %}
+{% endmacro %}
+
+{% macro multiselectField(config) %}
+    {% import _self as forms %}
+    {% set input = forms.multiselect(config) %}
+    {% include "category-multi-select/_macros/field" with config|merge({ input: input }) only %}
+{% endmacro %}
+
+
