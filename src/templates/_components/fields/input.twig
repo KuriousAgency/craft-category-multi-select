@@ -13,7 +13,7 @@
  */
 #}
 
-{# {% import "_includes/forms" as forms %} #}
+{% import "_includes/forms" as forms %}
 {% import "category-multi-select/_macros/multiselectfield" as macros %}
 
 {% set values = [] %}
@@ -29,28 +29,43 @@
     <div id="{{ id }}">
 
         {% for categoryId,category in categories %}
-            
-            {{ macros.multiselectField({
-                label: category.title,
-                id: id ~ '-category-' ~ categoryId,
-                name: name,
-                options: category.children,
-                values: values,
-                class: 'selectize fullwidth',
-            }) }}
+
+			{# <div class="hidden" data-id={"{ categoryId }}"> #}
+
+				{% if category.attribute is defined and category.attribute %}
+					{{ forms.selectField({
+						label: category.title,
+						id: id ~ '-category-' ~ categoryId,
+						name: name,
+						options: category.children,
+						values: values,
+						class: 'selectize fullwidth',
+					}) }}
+				{% else %}
+					{{ macros.multiselectField({
+						label: category.title,
+						id: id ~ '-category-' ~ categoryId,
+						name: name,
+						options: category.children,
+						values: values,
+						class: 'selectize fullwidth',
+					}) }}
+				{% endif %}
+
+			{# </div> #}
 
             {% set ids = ids|merge(['#fields-' ~ id  ~ '-category-' ~ categoryId]) %}
 
         {% endfor %}
 
         {% js %}
-                $(function () {
-                    $('{{ ids|join(',') }}').selectize({
-                        plugins: ['remove_button'],
-                        dropdownParent: 'body'
-                    });
-                });
-            {% endjs %}
+			$(function () {
+				$('{{ ids|join(',') }}').selectize({
+					plugins: ['remove_button'],
+					dropdownParent: 'body'
+				});
+			});
+		{% endjs %}
     </div>
 
 {% else %}

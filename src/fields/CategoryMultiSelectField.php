@@ -171,6 +171,7 @@ class CategoryMultiSelectField extends BaseRelationField
 					$categoriesArray[$parentId] = [
 						'title' => $category->title,
 						'children' => [],
+						'attribute' => $category->filterAttribute,
 					];
 				}
 			} elseif($category->level == 2 && $parentId > 0) {
