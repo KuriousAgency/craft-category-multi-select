@@ -11,7 +11,7 @@
 namespace kuriousagency\categorymultiselect\fields;
 
 use kuriousagency\categorymultiselect\CategoryMultiSelect;
-use kuriousagency\categorymultiselect\assetbundles\categorymultiselectfieldfield\CategoryMultiSelectFieldFieldAsset;
+use kuriousagency\categorymultiselect\assetbundles\categorymultiselectfield\CategoryMultiSelectFieldAsset;
 
 use Craft;
 use craft\base\ElementInterface;
@@ -89,8 +89,8 @@ class CategoryMultiSelectField extends BaseRelationField
         parent::init();
         $this->allowLimit = false;
         $this->allowMultipleSources = false;
-        $this->settingsTemplate = 'category-multi-select/_components/fields/CategoryMultiSelectField_settings';
-        $this->inputTemplate = 'category-multi-select/_components/fields/CategoryMultiSelectField_input';
+        $this->settingsTemplate = 'category-multi-select/_components/fields/settings';
+		$this->inputTemplate = 'category-multi-select/_components/fields/input';
         // $this->inputJsClass = 'Craft.CategorySelectInput';
         $this->sortable = false;
     }

@@ -11,7 +11,7 @@
 namespace kuriousagency\categorymultiselect;
 
 use kuriousagency\categorymultiselect\services\CategoryMultiSelectService as CategoryMultiSelectServiceService;
-use kuriousagency\categorymultiselect\fields\CategoryMultiSelectField as CategoryMultiSelectFieldField;
+use kuriousagency\categorymultiselect\fields\CategoryMultiSelectField;
 
 use Craft;
 use craft\base\Plugin;
@@ -85,7 +85,7 @@ class CategoryMultiSelect extends Plugin
             Fields::class,
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
-                $event->types[] = CategoryMultiSelectFieldField::class;
+                $event->types[] = CategoryMultiSelectField::class;
             }
         );
 

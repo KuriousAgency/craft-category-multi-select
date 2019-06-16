@@ -8,14 +8,14 @@
  * @copyright Copyright (c) 2018 Kurious Agency
  */
 
-namespace kuriousagency\categorymultiselect\assetbundles\categorymultiselectfieldfield;
+namespace kuriousagency\categorymultiselect\assetbundles\categorymultiselectfield;
 
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * CategoryMultiSelectFieldFieldAsset AssetBundle
+ * CategoryMultiSelectFieldAsset AssetBundle
  *
  * AssetBundle represents a collection of asset files, such as CSS, JS, images.
  *
@@ -32,7 +32,7 @@ use craft\web\assets\cp\CpAsset;
  * @package   CategoryMultiSelect
  * @since     1.0.0
  */
-class CategoryMultiSelectFieldFieldAsset extends AssetBundle
+class CategoryMultiSelectFieldAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -43,7 +43,7 @@ class CategoryMultiSelectFieldFieldAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@kuriousagency/categorymultiselect/assetbundles/categorymultiselectfieldfield/dist";
+        $this->sourcePath = "@kuriousagency/categorymultiselect/assetbundles/categorymultiselectfield/dist";
 
         // define the dependencies
         $this->depends = [
